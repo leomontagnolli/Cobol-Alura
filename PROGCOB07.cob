@@ -1,0 +1,31 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. PROGCOB07.
+      *********************************
+      * AREA DE COMENTARIOS -- REMARKS
+      * AUTHOR = LEONARDO LEOMONTAGNOLLI
+      * OBJETIVO = POSITIVO E NEGATIVO
+      * DATA = 12/07/2020
+      *********************************
+       ENVIRONMENT DIVISION.
+       CONFIGURATION SECTION.
+       SPECIAL-NAMES.
+           DECIMAL-POINT IS COMMA.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       77 WRK-N1 PIC 9(02) VALUE ZEROS.
+       77 WRK-N2 PIC 9(02) VALUE ZEROS.
+       77 WRK-RESU PIC S9(04) VALUE ZEROS.
+       77 WRK-RESU-ED PIC -ZZ9 VALUE ZEROS.
+       PROCEDURE DIVISION.
+          ACCEPT WRK-N1 FROM CONSOLE.
+          ACCEPT WRK-N2 FROM CONSOLE.
+          DISPLAY 'N1: ' WRK-N1.
+          DISPLAY 'N2: ' WRK-N2.
+
+      ****************** subtracao
+          SUBTRACT WRK-N2 FROM WRK-N1 GIVING WRK-RESU.
+          MOVE WRK-RESU TO WRK-RESU-ED.
+          DISPLAY 'Subtracacao ' WRK-RESU.
+          DISPLAY 'RESU MASCARA ' WRK-RESU-ED.
+
+          STOP RUN.
