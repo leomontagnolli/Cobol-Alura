@@ -1,9 +1,9 @@
        IDENTIFICATION DIVISION.
-       PROGRAM-ID. PROGCOB08.
+       PROGRAM-ID. PROGCOB09.
       *********************************
       * AREA DE COMENTARIOS -- REMARKS
       * AUTHOR = LEONARDO LEOMONTAGNOLLI
-      * OBJETIVO = Receber e imprimir o status com if
+      * OBJETIVO = Receber e imprimir o status com EVALUATE
       * DATA = 12/07/2020
       *********************************
        ENVIRONMENT DIVISION.
@@ -14,21 +14,21 @@
        WORKING-STORAGE SECTION.
        77 WRK-N1 PIC 9(02) VALUE ZEROS.
        77 WRK-N2 PIC 9(02) VALUE ZEROS.
-       77 WRK-MEDIA PIC 9(04) VALUE ZEROS.
+       77 WRK-MEDIA PIC 9(02)V9 VALUE ZEROS.
        PROCEDURE DIVISION.
           ACCEPT WRK-N1 FROM CONSOLE.
           ACCEPT WRK-N2 FROM CONSOLE.
           DISPLAY 'N1: ' WRK-N1.
           DISPLAY 'N2: ' WRK-N2.
           COMPUTE WRK-MEDIA = (WRK-N1 + WRK-N2) / 2.
-            IF WRK-MEDIA >=6 THEN
+            EVALUATE WRK-MEDIA
+             WHEN 6 THRU 10
                DISPLAY 'APROVADO'
-
-            ELSE
-            IF WRK-MEDIA < 6  THEN
-              DISPLAY 'REPROVADO'
-              END-IF.
-
+             WHEN 2 THRU 5
+               DISPLAY 'RECUPERACAO'
+             WHEN OTHER
+                DISPLAY 'REPROVADO'
+             END-EVALUATE.
 
 
           DISPLAY 'MEDIA ' WRK-MEDIA.
