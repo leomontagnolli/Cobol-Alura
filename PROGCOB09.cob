@@ -24,7 +24,7 @@
             EVALUATE WRK-MEDIA
              WHEN 6 THRU 10
                DISPLAY 'APROVADO'
-             WHEN 2 THRU 5
+             WHEN 2 THRU 5,5
                DISPLAY 'RECUPERACAO'
              WHEN OTHER
                 DISPLAY 'REPROVADO'
